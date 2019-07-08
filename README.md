@@ -43,6 +43,23 @@ There are 3 folders each containing pieces of the project and a README.
 
 - train_classifer.py: Loads the database, transforms the database via NLP, and runs a machine learning model (using a ML Pipeline).
 
+# How to Run the Scripts
+
+1. Run the following commands in the project's root directory to set up your database and model.
+
+    - To run ETL pipeline that cleans data and stores in database
+        ```bash
+        python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db```
+    - To run ML pipeline that trains classifier and saves
+        ```bash
+        python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl```
+
+2. Run the following command in the app's directory to run your web app.
+    ```bash
+    python run.py```
+
+3. Go to http://0.0.0.0:3001/
+
 # Authors, Licensing, & Acknowledgements
 
 Wanted to thank [Figure Eight](https://visit.figure-eight.com/better-machine-learning-models.html?source=Paid&medium=GoogleAd&campaign=Branded&content=Demo&term=figure8&matchtype=e&gclid=CjwKCAjwsIbpBRBNEiwAZF8-zx8Jn49P6at_Gl4j9-4wgtRtHnYfJ_uLJQfP6YxjhsYXOqn3U9J2kBoCjI0QAvD_BwE) for providing the dataset for us to analyze.
