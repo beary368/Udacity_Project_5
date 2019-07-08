@@ -72,7 +72,11 @@ def build_model():
 
         ('clf', MultiOutputClassifier(AdaBoostClassifier()))
     ])
-    return model
+    print('Running Grid Search to find optimized model!')
+    parameters = {'clf__estimator__n_estimators':[10,50,100]}
+    cv = GridSearchCV(model, param_grid=parameters)
+                  
+    return cv
 
 
 def evaluate_model(model, X_test, Y_test, category_names):
