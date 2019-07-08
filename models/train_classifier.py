@@ -93,6 +93,7 @@ def evaluate_model(model, X_test, Y_test, category_names):
     print('The average f1_score is: {}'.format(results_df['F1_Score'].mean()))
     print('The average precision is: {}'.format(results_df['Precision'].mean()))
     print('The average recall is: {}'.format(results_df['Recall'].mean()))
+    display(results_df)
 
 
 def save_model(model, model_filepath):
