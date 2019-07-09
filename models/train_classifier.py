@@ -17,6 +17,14 @@ from sklearn.multioutput import MultiOutputClassifier
 import pickle
 
 def load_data(database_filepath):
+    """
+    Load SQLite database and return parsed out messages and categories
+    INPUT - database_filepath: Filepath for SQLite Database
+    OUTPUT - 
+    X: Messages to train and predict
+    Y: Categories
+    category_names: Names of category columns
+    """
     engine = create_engine('sqlite:///'+database_filepath)
     df = pd.read_sql_table('Disaster',engine)
     X = df['message']
@@ -26,6 +34,9 @@ def load_data(database_filepath):
 
 
 def tokenize(text):
+    """
+    Tokenizer for all url types
+    """
     url_regex = 'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
     detected_urls = re.findall(url_regex, text)
     for url in detected_urls:
@@ -59,6 +70,10 @@ class StartingVerbExtractor(BaseEstimator, TransformerMixin):
         return pd.DataFrame(X_tagged)
 
 def build_model():
+    """
+    Build ML Pipeline and run GridSearchCV to optimize model
+    OUTPUT - cv: optimized ML Model
+    """
     model = Pipeline([
         ('features', FeatureUnion([
 
@@ -80,6 +95,14 @@ def build_model():
 
 
 def evaluate_model(model, X_test, Y_test, category_names):
+    """
+    Evaluate ML model and return results
+    INPUT -
+    model: Optimized ML Model
+    X_test: Test set of messages
+    Y_test: Test set of categories
+    category_names: Column names for dataframe
+    """
     y_pred = model.predict(X_test)
     results_df = pd.DataFrame(columns=['Category','F1_Score','Precision','Recall'])
     i = 0
@@ -93,10 +116,16 @@ def evaluate_model(model, X_test, Y_test, category_names):
     print('The average f1_score is: {}'.format(results_df['F1_Score'].mean()))
     print('The average precision is: {}'.format(results_df['Precision'].mean()))
     print('The average recall is: {}'.format(results_df['Recall'].mean()))
-    display(results_df)
+    
 
 
 def save_model(model, model_filepath):
+    """
+    Save model as a pickle file
+    INPUT - 
+    model: Optimized ML Model
+    model_filepath: Filepath where model is saved
+    """
     pickle.dump(model, open(model_filepath, 'wb'))
 
 
