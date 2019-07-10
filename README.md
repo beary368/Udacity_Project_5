@@ -63,6 +63,10 @@ There are 3 folders each containing pieces of the project and a README.
 
 3. Go to http://0.0.0.0:3001/
 
+# Screenshot
+
+![](https://github.com/beary368/Udacity_Project_5/blob/master/Screenshot.png)
+
 # Authors, Licensing, & Acknowledgements
 
 Wanted to thank [Figure Eight](https://visit.figure-eight.com/better-machine-learning-models.html?source=Paid&medium=GoogleAd&campaign=Branded&content=Demo&term=figure8&matchtype=e&gclid=CjwKCAjwsIbpBRBNEiwAZF8-zx8Jn49P6at_Gl4j9-4wgtRtHnYfJ_uLJQfP6YxjhsYXOqn3U9J2kBoCjI0QAvD_BwE) for providing the dataset for us to analyze.
