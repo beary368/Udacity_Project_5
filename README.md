@@ -66,6 +66,7 @@ There are 3 folders each containing pieces of the project and a README.
 # Screenshot
 
 ![](https://github.com/beary368/Udacity_Project_5/blob/master/Screenshot.png)
+![](https://github.com/beary368/Udacity_Project_5/blob/master/newplot.png)
 
 # Authors, Licensing, & Acknowledgements
 
