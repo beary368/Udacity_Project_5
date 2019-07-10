@@ -54,6 +54,11 @@ def tokenize(text):
 class StartingVerbExtractor(BaseEstimator, TransformerMixin):
 
     def starting_verb(self, text):
+        """
+        Transformer which uses NLP to pick out the first verb in a sentence thorough the parts of speech library in the Natural Language Toolkit.
+        INPUT - text: A set of text you wish to analyze
+        OUTPUT - True or False depending on if it is the first verb or not.
+        """
         sentence_list = nltk.sent_tokenize(text)
         for sentence in sentence_list:
             pos_tags = nltk.pos_tag(tokenize(sentence))
